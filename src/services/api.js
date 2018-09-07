@@ -2,6 +2,7 @@
 const URL = '/api';
 const NEIGHBORHOODS_URL = `${URL}/neighborhoods`;
 const RESTAURANTS_URL = `${URL}/restaurants`;
+// const RESTAURANTS_URL = 'http://api.civicapps.org/restaurant-inspections/';
 const AUTH_URL = `${URL}/auth`;
 
 function responseHandler(response) {
@@ -77,10 +78,10 @@ export function getQuadrant(id) {
     .then(response => response.json());
 }
 
-export function getRestaurants(neighborhoodId) {
+export function getRestaurants() {
   // use `encodeURIComponent(value)` if things in query string need
   // to be escaped (like spaces, punctuation, etc)
-  return fetch(`${RESTAURANTS_URL}?neighborhoodId=${neighborhoodId}`, {
+  return fetch(`${RESTAURANTS_URL}`, {
     headers: getHeaders()
   })
     .then(response => response.json());

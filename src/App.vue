@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>Router Demo</h1>
+    <h1>Deploy Demo</h1>
     <nav>
       <RouterLink exact to="/">Home</RouterLink>
       &nbsp;
@@ -8,10 +8,12 @@
       &nbsp;
       <RouterLink v-if="user" to="/quadrants">Quadrants</RouterLink>
       &nbsp;
+      <RouterLink v-if="user" to="/restaurants">Restaurants</RouterLink>
+      &nbsp;
       <RouterLink v-if="!user" to="/auth">Sign In</RouterLink>
       <a v-else @click.prevent="handleLogout">Logout</a>
     </nav>
-    <pre>{{ user }}</pre>
+    <span v-if="user">{{ user.name }}</span>
     <RouterView :on-user="handleUser" :user="user"/>
   </div>
 </template>
